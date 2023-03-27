@@ -1,4 +1,4 @@
-# sdwan-client-api
+# vmware-sdwan-client-sdk
 
 This is an unofficial SDK for the VMware SD-WAN Client API.
 
