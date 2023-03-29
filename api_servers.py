@@ -12,7 +12,7 @@ except KeyError:
     ApiHelper().print_env_error()
 
 
-class ApiServers(object):
+class ApiServers:
     """
     A class for server related api calls.
     """
@@ -43,7 +43,7 @@ class ApiServers(object):
 
     def create(
         self, name, subdomain, description="created by api user",
-        hostname="", groups=[]
+        hostname="", groups=None
     ):
         """
         Used to build a server. Only name and subdomain are currently
@@ -59,6 +59,7 @@ class ApiServers(object):
         Returns:
             response (list(dict)): node details.
         """
+        groups = groups or []
 
         server_data = {
             "subdomain": f"{subdomain}",

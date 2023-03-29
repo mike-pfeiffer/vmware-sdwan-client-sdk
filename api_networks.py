@@ -12,7 +12,7 @@ except KeyError:
     ApiHelper().print_env_error()
 
 
-class ApiNetworks(object):
+class ApiNetworks:
     """
     A class for network related api calls.
     """
@@ -60,29 +60,29 @@ class ApiNetworks(object):
             response (list(dict)): node details.
         """
 
-        sourceNobs = []
+        source_nobs = []
 
         for key, value in source_ids.items():
             if key == "user":
                 for user_id in value:
                     temp = {"id": user_id, "type": key}
-                    sourceNobs.append(temp)
+                    source_nobs.append(temp)
             elif key == "group":
                 for group_id in value:
                     temp = {"id": group_id, "type": key}
-                    sourceNobs.append(temp)
+                    source_nobs.append(temp)
 
-        targetNobs = []
+        target_nobs = []
 
         for key, value in destination_ids.items():
             if key == "user":
                 for user_id in value:
                     temp = {"id": user_id, "type": key}
-                    targetNobs.append(temp)
+                    target_nobs.append(temp)
             elif key == "group":
                 for group_id in value:
                     temp = {"id": group_id, "type": key}
-                    targetNobs.append(temp)
+                    target_nobs.append(temp)
 
         v2lan_data = {
             "isKeepConnected": f"{keep_connected}",
@@ -92,8 +92,8 @@ class ApiNetworks(object):
                 "sourceContextId": f"{context_id}"
             },
             "topology": {
-                "sourceNobs": sourceNobs,
-                "targetNobs": targetNobs,
+                "sourceNobs": source_nobs,
+                "targetNobs": target_nobs,
                 "type": "HUB"
             }
         }
@@ -122,17 +122,17 @@ class ApiNetworks(object):
             response (list(dict)): node details.
         """
 
-        sourceNobs = []
+        source_nobs = []
 
         for key, value in source_ids.items():
             if key == "user":
                 for user_id in value:
                     temp = {"id": user_id, "type": key}
-                    sourceNobs.append(temp)
+                    source_nobs.append(temp)
             elif key == "group":
                 for group_id in value:
                     temp = {"id": group_id, "type": key}
-                    sourceNobs.append(temp)
+                    source_nobs.append(temp)
 
         v2lan_data = {
             "isKeepConnected": f"{keep_connected}",
@@ -142,7 +142,7 @@ class ApiNetworks(object):
                 "sourceContextId": f"{context_id}"
             },
             "topology": {
-                "sourceNobs": sourceNobs,
+                "sourceNobs": source_nobs,
                 "type": "MESH"
             }
         }
@@ -170,7 +170,7 @@ class ApiNetworks(object):
         }
         self.session.headers.update(del_headers)
         v2lan_id = self.get(name)["v2lanId"]
-        new_url = self.url + f"/{v2lan_id}"
+        new_url = f"{self.url}/{v2lan_id}"
         response = ApiHelper().http(
             "POST", self.session, new_url
         )

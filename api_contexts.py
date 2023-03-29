@@ -12,7 +12,7 @@ except KeyError:
     ApiHelper().print_env_error()
 
 
-class ApiContexts(object):
+class ApiContexts:
     """
     A class for context related api calls.
     """

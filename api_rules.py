@@ -12,7 +12,7 @@ except KeyError:
     ApiHelper().print_env_error()
 
 
-class ApiRules(object):
+class ApiRules:
     """
     A class for rule related api calls.
     """

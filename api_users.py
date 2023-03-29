@@ -12,7 +12,7 @@ except KeyError:
     ApiHelper().print_env_error()
 
 
-class ApiUsers(object):
+class ApiUsers:
     """
     A class for user related api calls.
     """

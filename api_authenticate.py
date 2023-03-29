@@ -13,7 +13,7 @@ except KeyError:
     ApiHelper().print_env_error()
 
 
-class ApiAuthenticate(object):
+class ApiAuthenticate:
     """
     A class for authentication related api calls.
     """

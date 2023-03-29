@@ -5,7 +5,7 @@ import json
 import requests
 
 
-class ApiHelper():
+class ApiHelper:
     """
     A class for assisting other api libraries.
     """
@@ -114,7 +114,7 @@ class ApiHelper():
             else:
                 data = json.loads(data)
                 return data
-        except ValueError as e:
-            raise Exception(e)
         except json.decoder.JSONDecodeError as e:
+            raise Exception(e)
+        except ValueError as e:
             raise Exception(e)
