@@ -3,7 +3,7 @@
 import json
 
 
-class CliHelper():
+class CliHelper:
     """
     A class to assist with cli utility functionality.
     """

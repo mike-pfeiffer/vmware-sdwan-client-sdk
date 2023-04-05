@@ -12,7 +12,7 @@ except KeyError:
     ApiHelper().print_env_error()
 
 
-class ApiClientConnectors(object):
+class ApiClientConnectors:
     """
     A class for client connector related api calls.
     """
@@ -42,8 +42,8 @@ class ApiClientConnectors(object):
         )
 
     def create(
-        self, name, interface_name, dns_hosts=[], gateway_ips=[],
-        group_ids=[], description="created by api user", tunnel=False
+        self, name, interface_name, dns_hosts=None, gateway_ips=None,
+            group_ids=None, description="created by api user", tunnel=False
     ):
         """
         Used in the creation of client connectors.
@@ -63,6 +63,9 @@ class ApiClientConnectors(object):
                 - user (dict): client connector object details.
         """
 
+        dns_hosts = dns_hosts or []
+        gateway_ips = gateway_ips or []
+        group_ids = group_ids or []
         gateway_data = {
             "interfaceName": f"{interface_name}",
             "name": f"{name}",

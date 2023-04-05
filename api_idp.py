@@ -12,7 +12,7 @@ except KeyError:
     ApiHelper().print_env_error()
 
 
-class ApiIdp(object):
+class ApiIdp:
     """
     A class for user identity related api calls.
     """

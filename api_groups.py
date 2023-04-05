@@ -12,7 +12,7 @@ except KeyError:
     ApiHelper().print_env_error()
 
 
-class ApiGroups(object):
+class ApiGroups:
     """
     A class for group related api calls.
     """
