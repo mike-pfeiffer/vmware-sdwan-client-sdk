@@ -67,7 +67,10 @@ class ApiClientConnectors:
         gateway_ips = gateway_ips or []
         group_ids = group_ids or []
         gateway_data = {
-            "interfaceName": f"{interface_name}",
+            "networkInterface": {
+                "interfaceName": f"{interface_name}",
+                "natDisabled": False
+            },
             "name": f"{name}",
             "desc": f"{description}",
         }
