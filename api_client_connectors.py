@@ -64,7 +64,10 @@ class ApiClientConnectors(object):
         """
 
         gateway_data = {
-            "interfaceName": f"{interface_name}",
+            "networkInterface": {
+                "interfaceName": f"{interface_name}",
+                "natDisabled": False
+            },
             "name": f"{name}",
             "desc": f"{description}",
         }
